@@ -1,13 +1,6 @@
 'use strict';
 
 module.exports = {
-	db: {
-		uri: 'mongodb://localhost/mean-test',
-		options: {
-			user: '',
-			pass: ''
-		}
-	},
 	port: 3001,
 	log: {
 		// Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
@@ -19,7 +12,7 @@ module.exports = {
 		}
 	},
 	app: {
-		title: 'MEAN.JS - Test Environment'
+		title: 'MEEN.JS - Test Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

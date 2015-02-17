@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 var passport = require('passport'),
-	LocalStrategy = require('passport-local').Strategy,
-	User = require('mongoose').model('User');
+	LocalStrategy = require('passport-local').Strategy;
+	//User = require('mongoose').model('User');
 
 module.exports = function() {
 	// Use local strategy
@@ -14,6 +14,8 @@ module.exports = function() {
 			passwordField: 'password'
 		},
 		function(username, password, done) {
+            return done(null, username);
+            /*
 			User.findOne({
 				username: username
 			}, function(err, user) {
@@ -33,6 +35,7 @@ module.exports = function() {
 
 				return done(null, user);
 			});
+            */
 		}
 	));
 };

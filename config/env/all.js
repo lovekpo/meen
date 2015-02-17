@@ -2,15 +2,15 @@
 
 module.exports = {
 	app: {
-		title: 'MEAN.JS',
-		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
-		keywords: 'mongodb, express, angularjs, node.js, mongoose, passport'
+		title: 'MEEN.JS',
+		description: 'Full-Stack JavaScript with MySQL, Express, ExtJS, and Node.js',
+		keywords: 'mysql, express, extjs, node.js'
 	},
 	port: process.env.PORT || 3000,
 	templateEngine: 'swig',
 	// The secret should be set to a non-guessable string that
 	// is used to compute a session hash
-	sessionSecret: 'MEAN',
+	sessionSecret: 'MEEN',
 	// The name of the MongoDB collection to store sessions in
 	sessionCollection: 'sessions',
 	// The session cookie settings
@@ -43,30 +43,21 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
-				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
 			],
 			js: [
-				'public/lib/angular/angular.js',
-				'public/lib/angular-resource/angular-resource.js',
-				'public/lib/angular-animate/angular-animate.js',
-				'public/lib/angular-ui-router/release/angular-ui-router.js',
-				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				'public/ext/build/*.js'
 			]
 		},
 		css: [
-			'public/modules/**/css/*.css'
+			'public/resource/**/styles/*.css'
 		],
 		js: [
-			'public/config.js',
-			'public/application.js',
-			'public/modules/*/*.js',
-			'public/modules/*/*[!tests]*/*.js'
+			'public/app.js',
+			'public/bootstrap.js',
+			'public/app/*/*.js',
 		],
 		tests: [
-			'public/lib/angular-mocks/angular-mocks.js',
-			'public/modules/*/tests/*.js'
+			'public/*/tests/*.js'
 		]
 	}
 };

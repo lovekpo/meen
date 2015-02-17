@@ -3,31 +3,34 @@
 /**
  * Module dependencies.
  */
-var _ = require('lodash'),
-	mongoose = require('mongoose'),
-	User = mongoose.model('User');
+var _ = require('lodash');
 
 /**
  * User middleware
  */
 exports.userByID = function(req, res, next, id) {
+    /*
 	User.findById(id).exec(function(err, user) {
 		if (err) return next(err);
 		if (!user) return next(new Error('Failed to load User ' + id));
 		req.profile = user;
 		next();
 	});
+    */
+    next();
 };
 
 /**
  * Require login routing middleware
  */
 exports.requiresLogin = function(req, res, next) {
+    /*
 	if (!req.isAuthenticated()) {
 		return res.status(401).send({
 			message: 'User is not logged in'
 		});
 	}
+    */
 
 	next();
 };

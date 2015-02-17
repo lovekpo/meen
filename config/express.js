@@ -16,22 +16,19 @@ var fs = require('fs'),
 	cookieParser = require('cookie-parser'),
 	helmet = require('helmet'),
 	passport = require('passport'),
+    /*
 	mongoStore = require('connect-mongo')({
 		session: session
 	}),
+    */
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path');
 
-module.exports = function(db) {
+module.exports = function() {
 	// Initialize express app
 	var app = express();
-
-	// Globbing model files
-	config.getGlobbedFiles('./app/models/**/*.js').forEach(function(modelPath) {
-		require(path.resolve(modelPath));
-	});
 
 	// Setting application local variables
 	app.locals.title = config.app.title;
@@ -99,6 +96,7 @@ module.exports = function(db) {
 	app.use(cookieParser());
 
 	// Express MongoDB session storage
+    /*
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
@@ -110,6 +108,7 @@ module.exports = function(db) {
 		cookie: config.sessionCookie,
 		name: config.sessionName
 	}));
+    */
 
 	// use passport session
 	app.use(passport.initialize());

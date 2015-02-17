@@ -4,7 +4,8 @@
  */
 var init = require('./config/init')(),
 	config = require('./config/config'),
-	mongoose = require('mongoose'),
+	Container = require('wantsit').Container,
+	mysql = require('mysql'),
 	chalk = require('chalk');
 
 /**
@@ -12,21 +13,14 @@ var init = require('./config/init')(),
  * Please note that the order of loading is important.
  */
 
-// Bootstrap db connection
-var db = mongoose.connect(config.db.uri, config.db.options, function(err) {
-	if (err) {
-		console.error(chalk.red('Could not connect to MongoDB!'));
-		console.log(chalk.red(err));
-	}
-});
-mongoose.connection.on('error', function(err) {
-	console.error(chalk.red('MongoDB connection error: ' + err));
-	process.exit(-1);
-	}
-);
+// Create container
+var container = new Container();
+
+// set up db connection
+container.register('db', mysql.createPool(config.db));
 
 // Init the express application
-var app = require('./config/express')(db);
+var app = require('./config/express')();
 
 // Bootstrap passport config
 require('./config/passport')();

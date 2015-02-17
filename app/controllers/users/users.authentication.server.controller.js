@@ -5,14 +5,17 @@
  */
 var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
-	mongoose = require('mongoose'),
-	passport = require('passport'),
-	User = mongoose.model('User');
+	passport = require('passport');
+
+exports.organization = function(req, res, next) {
+    res.json([{ id: 1, name: 'Enswers' }]);
+}
 
 /**
  * Signup
  */
 exports.signup = function(req, res) {
+    /*
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
 
@@ -44,12 +47,22 @@ exports.signup = function(req, res) {
 			});
 		}
 	});
+    */
 };
 
 /**
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
+    var user = {
+        id: 1,
+        name: 'lovekpo',
+        projectId: 1,
+        organizationId: 1
+    };
+    res.json(user);
+
+    /*
 	passport.authenticate('local', function(err, user, info) {
 		if (err || !user) {
 			res.status(400).send(info);
@@ -67,6 +80,7 @@ exports.signin = function(req, res, next) {
 			});
 		}
 	})(req, res, next);
+    */
 };
 
 /**
@@ -81,6 +95,7 @@ exports.signout = function(req, res) {
  * OAuth callback
  */
 exports.oauthCallback = function(strategy) {
+    /*
 	return function(req, res, next) {
 		passport.authenticate(strategy, function(err, user, redirectURL) {
 			if (err || !user) {
@@ -95,12 +110,14 @@ exports.oauthCallback = function(strategy) {
 			});
 		})(req, res, next);
 	};
+    */
 };
 
 /**
  * Helper function to save or update a OAuth user profile
  */
 exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
+    /*
 	if (!req.user) {
 		// Define a search query fields
 		var searchMainProviderIdentifierField = 'providerData.' + providerUserProfile.providerIdentifierField;
@@ -169,12 +186,14 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 			return done(new Error('User is already connected using this provider'), user);
 		}
 	}
+    */
 };
 
 /**
  * Remove OAuth provider
  */
 exports.removeOAuthProvider = function(req, res, next) {
+    /*
 	var user = req.user;
 	var provider = req.param('provider');
 
@@ -203,4 +222,5 @@ exports.removeOAuthProvider = function(req, res, next) {
 			}
 		});
 	}
+    */
 };

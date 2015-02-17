@@ -5,14 +5,13 @@
  */
 var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller.js'),
-	mongoose = require('mongoose'),
-	passport = require('passport'),
-	User = mongoose.model('User');
+	passport = require('passport');
 
 /**
  * Update user details
  */
 exports.update = function(req, res) {
+    /*
 	// Init Variables
 	var user = req.user;
 	var message = null;
@@ -46,6 +45,7 @@ exports.update = function(req, res) {
 			message: 'User is not signed in'
 		});
 	}
+    */
 };
 
 /**

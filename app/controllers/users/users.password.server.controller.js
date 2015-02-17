@@ -5,9 +5,7 @@
  */
 var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
-	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User'),
 	config = require('../../../config/config'),
 	nodemailer = require('nodemailer'),
 	async = require('async'),
@@ -19,6 +17,7 @@ var smtpTransport = nodemailer.createTransport(config.mailer.options);
  * Forgot for reset password (forgot POST)
  */
 exports.forgot = function(req, res, next) {
+    /*
 	async.waterfall([
 		// Generate random token
 		function(done) {
@@ -90,12 +89,14 @@ exports.forgot = function(req, res, next) {
 	], function(err) {
 		if (err) return next(err);
 	});
+    */
 };
 
 /**
  * Reset password GET from email token
  */
 exports.validateResetToken = function(req, res) {
+    /*
 	User.findOne({
 		resetPasswordToken: req.params.token,
 		resetPasswordExpires: {
@@ -108,12 +109,14 @@ exports.validateResetToken = function(req, res) {
 
 		res.redirect('/#!/password/reset/' + req.params.token);
 	});
+    */
 };
 
 /**
  * Reset password POST from email token
  */
 exports.reset = function(req, res, next) {
+    /*
 	// Init Variables
 	var passwordDetails = req.body;
 
@@ -186,12 +189,14 @@ exports.reset = function(req, res, next) {
 	], function(err) {
 		if (err) return next(err);
 	});
+    */
 };
 
 /**
  * Change Password
  */
 exports.changePassword = function(req, res) {
+    /*
 	// Init Variables
 	var passwordDetails = req.body;
 
@@ -246,4 +251,5 @@ exports.changePassword = function(req, res) {
 			message: 'User is not signed in'
 		});
 	}
+    */
 };
